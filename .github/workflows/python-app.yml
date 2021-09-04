@@ -33,4 +33,4 @@ jobs:
         run: sudo timedatectl set-timezone 'Asia/Shanghai'
       
       - name: run
-        run: python main.py
+        run: python AutoCheck.py
