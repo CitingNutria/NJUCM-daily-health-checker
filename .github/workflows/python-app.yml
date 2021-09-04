@@ -1,0 +1,36 @@
+# This workflow will install Python dependencies, run tests and lint with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Python application
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 18 * * *'
+    
+env:
+    USERID: ${{secrets.USERID}}
+    PASSWORD: ${{secrets.PASSWORD}}
+    NAME: ${{secrets.NAME}}
+    LOCATION: ${{secrets.LOCATION}}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          ref: main
+      - name: Setup Python
+        uses: actions/setup-python@v2
+      - name: Install
+        run: pip install requests requests
+       # 设置服务器时区为东八区 
+      - name: Set time zone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+      
+      - name: run
+        run: python main.py
