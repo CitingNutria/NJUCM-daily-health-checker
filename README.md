@@ -5,9 +5,7 @@
 
 如果啥也不懂
 
-
 下载上面的health_checker.exe
-
 
 直接运行
 
