@@ -73,7 +73,7 @@ location = os.environ["LOCATION"]
 
 
 
-print("launching...")
+print("launching....")
 healthCheck(name,password,userid,location)
 
 
